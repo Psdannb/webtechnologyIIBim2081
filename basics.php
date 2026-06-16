@@ -106,7 +106,8 @@ $a=4;
 //     echo "The given number is less than or equal to 5";
 // }
 
-
+// if.... else if 
+ 
 
 
 
