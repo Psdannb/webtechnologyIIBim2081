@@ -81,7 +81,7 @@ $name .="Karki";
 (condition)?"true statement":"false statement" */
 $d=1;
 $e=4;
-echo ($d>$e)? "D is greater than e":"d is not greater than e";
+// echo ($d>$e)? "D is greater than e":"d is not greater than e";
 
 
 
@@ -107,9 +107,173 @@ $a=4;
 // }
 
 // if.... else if 
- 
+//  $num=50;
+//  if($num>5){
+//    echo "The number is greater than 5";
+//  }
+//   else if($num<5){
+//    echo "The number is less  than 5";
+//  }
+//  else{
+   
+//    echo "The number is   5";
+
+//  }
+
+// nested if else 
+// if inside if 
+ $a=50;
+ $b=20;
+
+
+//   if($a==5){
+
+// if($b==2){
+//    echo "The  value of a is 5 and b is 2";
+// }
+//   }
+
+
+//   nested if else 
+//  if($a==5){
+
+// if($b==2){
+//    echo "The  value of a is 5 and b is 2";
+// }
+
+// else{
+// echo "The  value of a is 5 and b is not 2";
+// }
+
+//  }
+
+//  else{
+//    echo "The  value of a is not 5 and b is not 2";
+//  }
 
 
 
+
+// switch 
+
+/*variable 
+switch(varibale){
+case variable value{
+
+}
+case variable value{
+
+}
+case variable value{
+
+}
+case variable value{
+
+}
+default{
+
+}
+
+}
+*/
+/*example 1
+$x=1;
+switch($x){
+   case 1:{
+      echo "The value is 1";
+      break;
+   }
+     case 2:{
+      echo "The value is 2";
+      break;
+   }
+     case 3:{
+      echo "The value is 3";
+      break;
+   }
+   default:{
+      echo "The value is other than 1 2 3";
+   }
+}
+   */
+  /* example 2
+  $day ="jdfg ";
+  switch($day){
+   case "sun":{
+echo "Today is sunday";
+break;
+   }
+     case "mon":{
+echo "Today is monday";
+break;
+   }
+  case "tue":{
+echo "Today is tuesday";
+break;
+   }
+  case "wed":{
+echo "Today is wednesday";
+break;
+   }
+
+  case "thu":{
+echo "Today is Thursday";
+break;
+   }
+  case "fri":{
+echo "Today is Friday";
+break;
+   }
+     case "sat":{
+echo "Today is saturday";
+break;
+   }
+   default:{
+      echo "Invalid day";
+   }
+  }
+   */
+
+
+
+  /* loops
+  for loop
+  while loop
+  do while loop
+  */
+
+/*for loop
+for(initialization;condition;increment/decrement){
+//block of code
+}
+
+example 1:
+
+for($i=0;$i<=10;$i++){
+   echo $i;
+   echo "<br>";
+}*/
+
+
+$datas=["ram","Hari","Sita","Gita"];
+/*for($i=0;$i<=3;$i++){
+echo $datas[$i];
+echo "<br>";
+}*/
+
+/*
+use of foreach loop to access the array elements
+syntax:
+foreach($arraname as $arrayelem){
+
+}
+example:
+
+
+foreach($datas as $data){
+echo $data;
+echo "<br>";
+}
+*/
 
 ?>
