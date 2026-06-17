@@ -253,8 +253,23 @@ for($i=0;$i<=10;$i++){
    echo $i;
    echo "<br>";
 }*/
+/*
+break and continue keyword in loop
+for($i=0;$i<=10;$i++){
+   echo $i;
+   if($i==2){
+      continue;
+   }
+   echo "<br>";
+}
 
-
+for($i=0;$i<=10;$i++){
+   echo $i;
+   if($i==2){
+      break;
+   }
+   echo "<br>";
+}*/
 $datas=["ram","Hari","Sita","Gita"];
 /*for($i=0;$i<=3;$i++){
 echo $datas[$i];
@@ -275,5 +290,53 @@ echo $data;
 echo "<br>";
 }
 */
+/* while loop 
+syntax:
+while(varaible /condition){
+increment/decrement;
+}
+example 1:
+$i=0;
+while($i<5){
+   echo $i;
+   echo "<br>";
+      $i++;
+}
+      example 2:
+
+$istrue=true;
+while($istrue){
+   echo "I am inside the while loop";
+   $istrue=false;
+}
+   */
+
+/* Do while loop
+do{
+
+}while(condition);
+example 1:
+
+$a=1;
+do{
+   echo "I am inside the do while loop";
+   echo "<br>";
+   $a++;
+}while($a<=5);
+*/
+
+/* Nested loop :loop inside loop
+
+example :1
+
+for($x=1;$x<10;$x++){
+   for($j=1;$j<=$x;$j++){
+      echo $j;
+     
+   }
+    echo "<br>";
+}
+*/
+
 
 ?>
