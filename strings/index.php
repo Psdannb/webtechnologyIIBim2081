@@ -50,3 +50,64 @@ $employeeStr = implode(",", $employeesArray);
 $a = "aman";
 $b = "alisha";
 // echo strcmp($a, $b);
+
+
+/*str_replace(): It is used to find and replace text within a string.  
+syntax: str_replace(find, replace, string);
+Example: */
+$str = "Hello World";
+$newStr = str_replace("World", "PHP", $str);
+
+// echo $newStr;
+
+/*strpos():It is used to find the position of the first occurrence of a substring within a string. 
+It returns the index position if found; otherwise, it returns false. 
+syntax: strpos(string, search); 
+Example:1 */
+
+$str = "Hello World";
+// echo strpos($str, "World");
+
+// example 2 :
+$str = "PHP Programming";
+// echo strpos($str, "P");
+
+
+/*
+stripos(): It is is used to find the position of the first occurrence of a substring in a string without 
+considering case (case-insensitive search).  
+syntax: stripos(string, search);
+Example:
+*/
+$str = "PHP Programming";
+// echo stripos($str, "P");
+
+/*  
+strripos():It is used to find the position of the last occurrence of a substring in a string
+ without considering case (case-insensitive search).
+ syntax: strripos(string, search);
+ Example:
+*/
+$str = "PHP is easy. I love php.";
+// echo strripos($str, "php");
+  
+/*
+strrpos():It used to find the position of the last occurrence of a substring in a string.
+ It performs a case-sensitive search.
+ syntax: strrpos(string, search);
+ Example:
+  */
+
+$str = "PHP is easy. PHP is powerful.";
+// echo strrpos($str, "PHP");
+
+/*
+trim(): It is used to remove whitespace (spaces, tabs, newlines, etc.) from the beginning and end of a string.
+syntax: trim(string);
+Example:
+*/
+
+$str = "   Hello PHP   ";
+echo trim($str);
+
+?>
