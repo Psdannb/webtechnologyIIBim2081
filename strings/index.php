@@ -55,7 +55,7 @@ $b = "alisha";
 /*str_replace(): It is used to find and replace text within a string.  
 syntax: str_replace(find, replace, string);
 Example: */
-$str = "Hello World";
+$str = "Hello World World";
 $newStr = str_replace("World", "PHP", $str);
 
 // echo $newStr;
@@ -65,12 +65,12 @@ It returns the index position if found; otherwise, it returns false.
 syntax: strpos(string, search); 
 Example:1 */
 
-$str = "Hello World";
+$str = "Hello World World";
 // echo strpos($str, "World");
 
 // example 2 :
 $str = "PHP Programming";
-// echo strpos($str, "P");
+// echo strpos($str, "p");
 
 
 /*
@@ -80,7 +80,7 @@ syntax: stripos(string, search);
 Example:
 */
 $str = "PHP Programming";
-// echo stripos($str, "P");
+// echo stripos($str, "p");
 
 /*  
 strripos():It is used to find the position of the last occurrence of a substring in a string
@@ -89,7 +89,7 @@ strripos():It is used to find the position of the last occurrence of a substring
  Example:
 */
 $str = "PHP is easy. I love php.";
-// echo strripos($str, "php");
+// echo strripos($str, "phP");
   
 /*
 strrpos():It used to find the position of the last occurrence of a substring in a string.
@@ -108,6 +108,7 @@ Example:
 */
 
 $str = "   Hello PHP   ";
-echo trim($str);
+// var_dump($str);
+var_dump(trim($str));
 
 ?>
