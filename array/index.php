@@ -267,14 +267,14 @@ print_r($result);
 /*15. array_sum() :It is used to calculate and return the sum of all numeric values in an array.
 syntax:array_sum(array);
 Example:
-*/
-// $numbers = [10, 20, "Hello", 40];
+
+$numbers = [10, 20, "Hello", 40];
 // echo array_sum($numbers);
 
 $marks=["web"=>80,"dbms"=>90,"economics"=>70];
 
-// echo array_sum($marks);
-
+echo array_sum($marks);
+*/
 
 /*16. array_product() :It is used to calculate and return the product (multiplication) of all numeric values in an array.
 syntax:array_product(array);
@@ -283,5 +283,188 @@ Example:
 $numbers = [2, 3, 4];
 
 echo array_product($numbers);
+*/
+
+/*17. array_values() :It is used to return all the values of an array and reindex them with numeric keys starting from 0
+syntax:array_values(array);
+
+Example:
+$student = [
+    "name" => "Ram",
+    "age" => 20,
+    "city" => "Pokhara"
+];
+
+$result = array_values($student);
+
+print_r($result);
+*/
+
+
+
+/*18. array_walk() :It is used to apply a user-defined function to each element of an array.
+syntax:array_walk(array, callback_function);
+Here,callback_function → A function that will be called for each array element.
+
+Example:
+$numbers = [1, 2, 3];
+
+function square(&$value, $key)
+{
+    $value = $value * $value;
+}
+
+array_walk($numbers, "square");
+
+print_r($numbers);
+*/
+
+/*19 sort():It is used to sort an array in ascending order based on its values.
+syntax:sort(array);
+
+Example:
+$numbers = [40, 10, 30, 20];
+
+sort($numbers);
+
+print_r($numbers);
+*/
+/*20 rsort():It is used to sort an array in descending order based on its values.
+syntax:rsort(array);
+
+Example:
+$numbers = [40, 10, 30, 20];
+
+rsort($numbers);
+
+print_r($numbers);
+*/
+/*21 arsort():It is used to sort an associative array in descending order according to its values while preserving the keys.
+syntax:arsort(array);
+
+Example:
+$marks = [
+    "Ram" => 80,
+    "Shyam" => 95,
+    "Hari" => 70
+];
+
+arsort($marks);
+
+print_r($marks);
+*/
+
+/*22 asort():It is used to sort an associative array in ascending order according to its values while preserving the keys.
+syntax:asort(array);
+
+Example:
+$marks = [
+    "Ram" => 80,
+    "Shyam" => 95,
+    "Hari" => 70
+];
+
+asort($marks);
+
+print_r($marks);
+*/
+
+/*23 krsort():It is used to sort an associative array in descending order according to its keys while preserving the key-value association.
+syntax:krsort(array);
+Example:
+$student = [
+    "name" => "Ram",
+    "city" => "Pokhara",
+    "age" => 20
+];
+
+krsort($student);
+
+print_r($student);
+*/
+
+
+/*24 ksort():It is used to sort an associative array in ascending order according to its keys while preserving the key-value association.
+syntax:ksort(array);
+Example:
+$student = [
+    "name" => "Ram",
+    "city" => "Pokhara",
+    "age" => 20
+];
+
+ksort($student);
+
+print_r($student);
+*/
+
+
+/*25 count():It is used to count the number of elements in an array. It can also count properties in certain objects.
+syntax:count(array);
+Example:
+$colors = ["Red", "Green", "Blue"];
+
+echo count($colors);
+*/
+
+/*26 extract():It is used to import array keys as variable names and assign their corresponding values to those variables.
+syntax:extract(array);
+Example:
+$student = [
+    "name" => "Ram",
+    "age" => 20,
+    "city" => "Pokhara"
+];
+
+extract($student);
+
+echo $name . "<br>";
+echo $age . "<br>";
+echo $city;
+*/
+
+/*27 in_array():It is used to check whether a specific value exists in an array.
+syntax:in_array(value, array);
+Example:
+$colors = ["Red", "Green", "Blue"];
+
+if (in_array("Green", $colors)) {
+    echo "Value found";
+} else {
+    echo "Value not found";
+}
+*/
+
+/*28 list():It is used to assign values from an indexed array to multiple variables in a single statement.
+syntax:list($var1, $var2, $var3) = array;
+Example:
+$student = ["Ram", 20, "Pokhara"];
+
+list($name, $age, $city) = $student;
+
+echo $name . "<br>";
+echo $age . "<br>";
+echo $city;
+*/
+
+/*29 range():It is used to create an array containing a range of elements. The elements can be numbers or letters.
+syntax:range(start, end, step);
+Here :
+start → Starting value.
+end → Ending value.
+step (optional) → Increment between values (default is 1).
+Example:
+$numbers = range(1, 5);
+
+print_r($numbers);
+*/
+
+
+/*30 sizeof():It is used to count the number of elements in an array.
+syntax:sizeof(array);
+Here :
+$colors = ["Red", "Green", "Blue"];
+
+echo sizeof($colors);
 */
 ?>
