@@ -283,7 +283,7 @@ Example:
 $numbers = [2, 3, 4];
 
 echo array_product($numbers);
-*/
+
 
 /*17. array_values() :It is used to return all the values of an array and reindex them with numeric keys starting from 0
 syntax:array_values(array);
@@ -316,7 +316,7 @@ function square(&$value, $key)
 
 array_walk($numbers, "square");
 
-print_r($numbers);
+print_r($numbers)
 */
 
 /*19 sort():It is used to sort an array in ascending order based on its values.
@@ -358,6 +358,7 @@ print_r($marks);
 syntax:asort(array);
 
 Example:
+
 $marks = [
     "Ram" => 80,
     "Shyam" => 95,
@@ -372,9 +373,11 @@ print_r($marks);
 /*23 krsort():It is used to sort an associative array in descending order according to its keys while preserving the key-value association.
 syntax:krsort(array);
 Example:
+
 $student = [
-    "name" => "Ram",
+    
     "city" => "Pokhara",
+    "name" => "Ram",
     "age" => 20
 ];
 
@@ -387,6 +390,7 @@ print_r($student);
 /*24 ksort():It is used to sort an associative array in ascending order according to its keys while preserving the key-value association.
 syntax:ksort(array);
 Example:
+
 $student = [
     "name" => "Ram",
     "city" => "Pokhara",
@@ -402,42 +406,48 @@ print_r($student);
 /*25 count():It is used to count the number of elements in an array. It can also count properties in certain objects.
 syntax:count(array);
 Example:
-$colors = ["Red", "Green", "Blue"];
+
+$colors = ["Red", "Green", "Blue","yellow"];
 
 echo count($colors);
-*/
 
+*/
 /*26 extract():It is used to import array keys as variable names and assign their corresponding values to those variables.
 syntax:extract(array);
 Example:
+
 $student = [
-    "name" => "Ram",
+    "nickname" => "Ramu",
     "age" => 20,
     "city" => "Pokhara"
 ];
 
 extract($student);
 
-echo $name . "<br>";
-echo $age . "<br>";
-echo $city;
+echo $nickname . "<br>";
+// echo $age . "<br>";
+// echo $city;
 */
 
 /*27 in_array():It is used to check whether a specific value exists in an array.
 syntax:in_array(value, array);
 Example:
-$colors = ["Red", "Green", "Blue"];
 
-if (in_array("Green", $colors)) {
-    echo "Value found";
-} else {
-    echo "Value not found";
-}
+$colors = ["Red", "Green", "Blue"];
+$result = in_array("green", $colors);
+var_dump($result); // Output: bool(true) since "Green" is found in the
+
+// if (in_array("Green", $colors)) {
+//     echo "Value found";
+// } else {
+//     echo "Value not found";
+// }
 */
 
 /*28 list():It is used to assign values from an indexed array to multiple variables in a single statement.
 syntax:list($var1, $var2, $var3) = array;
 Example:
+
 $student = ["Ram", 20, "Pokhara"];
 
 list($name, $age, $city) = $student;
@@ -454,17 +464,27 @@ start → Starting value.
 end → Ending value.
 step (optional) → Increment between values (default is 1).
 Example:
-$numbers = range(1, 5);
 
+// $numbers = range(1, 50);
+// $numbers=range("a","z");
+// $numbers = range(1, 50,5);
+$numbers=range("a","z",2);
 print_r($numbers);
-*/
 
+*/
 
 /*30 sizeof():It is used to count the number of elements in an array.
 syntax:sizeof(array);
 Here :
+
 $colors = ["Red", "Green", "Blue"];
 
 echo sizeof($colors);
 */
+
+/*31 array_rand(): It is used to pick one or more random keys from an array. */
+$colors = ["Red", "Green", "Blue"];
+
+$randomKey = array_rand($colors,2);
+print_r($randomKey); 
 ?>
