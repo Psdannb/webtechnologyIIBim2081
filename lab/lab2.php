@@ -1,7 +1,19 @@
 <?php
-$banned_words = ["scam", "crypto", "buy"];
+$banned_words = ["scam", "crypto", "buy" ];
 $user_comment = "Hey everyone, check out this amazing crypto link to buy cheap coins! This is
 not a scam! scam!";
+$positions=[];
+
+foreach($banned_words as $word){
+    $offset=0;
+    while(($pos=strpos($user_comment,$word,$offset))!==false){
+        $positions[] = $pos;
+        $offset=$pos+strlen($word);
+    }
+}
+$numberOfBannedWords=count($positions);
+
+    
 foreach($banned_words as $word){
     // var_dump($word);
     // echo "<br>";
@@ -16,7 +28,7 @@ if(strpos($user_comment, $word)!=false){
 }
    
 }
-// echo  $user_comment;
-// echo "<br>";
-// echo "I found $count banned words in the comment";
+echo  $user_comment;
+echo "<br>";
+echo "I found $numberOfBannedWords banned words in the comment";
 ?>
