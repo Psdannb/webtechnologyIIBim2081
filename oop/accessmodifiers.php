@@ -33,9 +33,15 @@ class Student
     }
 }
 
+
+
 $obj = new Student();
 
-echo $obj->name;
+// echo $obj->name;
+// $obj->display();
+
+
+
 Tip to remember: Public means "Open for Everyone." like "A college notice board"
 
 
@@ -44,10 +50,10 @@ A private property or method can only be accessed inside the same class.
 It cannot be accessed:
 -Outside the class
 -By child classes
-Example:
+Example: 
 class Student
 {
-    private $name = "Hari";
+   private $name = "Anubhav";
 
     public function show()
     {
@@ -57,7 +63,11 @@ class Student
 
 $obj = new Student();
 
-$obj->show();
+// $obj->show();
+// $obj->name;
+
+
+
 here if i try to access the properties outside the class it will not allow me to do so and throws an error
 Tip to remember: Private means "Only Me." like "Your ATM PIN."
 
@@ -67,7 +77,7 @@ A protected property or method can be accessed:
 -Inside the class
 -Inside child classes (inheritance)
 But not outside the class.
-Example:
+Example: */
 class Student
 {
     protected $college = "Nihareeka College";
@@ -78,7 +88,7 @@ class Student
     }
 }
 
-class BCA extends Student
+class BIM extends Student
 {
     public function display()
     {
@@ -86,11 +96,14 @@ class BCA extends Student
     }
 }
 
-$obj = new BCA();
+$obj = new BIM();
 
-$obj->display();
+// $obj->display();
+// $obj->college;
+// $pobj=new Student();
+// $pobj->college;
 
-
+/*
 Tip to remember : Protected means "Family Only." like "A family photo album-Only family members can see it,Outsiders cannot."
 */
 
