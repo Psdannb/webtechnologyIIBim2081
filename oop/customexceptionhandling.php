@@ -12,13 +12,14 @@ class MyException extends Exception
 
 Example: Suppose we want to check whether a student is eligible for admission.
 
-
+*/
 class AgeException extends Exception
 {
     public function showMessage()
     {
         return "Invalid age entered.";
     }
+
 }
 
 $age = 15;
@@ -28,16 +29,18 @@ try {
     if ($age < 18) {
         throw new AgeException("Age must be 18 or above.");
     }
+    echo "You are all good";
 
 }
 catch (AgeException $e) {
 
     echo $e->showMessage() . "<br>";
-    echo $e->getMessage();
+    echo $e->getMessage(). "<br>";
+    echo $e->errormessage();
 
 }
 
 
-*/
+
 
 ?>
