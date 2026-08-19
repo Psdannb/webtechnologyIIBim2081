@@ -86,17 +86,17 @@ example:
 */
 $content = file_get_contents("student.txt");
 
-echo $content;
+// echo $content;
 /*
 
 =>Similarly, file_put_contents() can write data without manually calling fopen(), fwrite(), and fclose().
 example: 
-
+*/
 file_put_contents(
     "student.txt",
-    "Name: Ram"
+    "I am the text content written from the file_put_contents method 2"
 );
-
+/*
 
 #Renaming a File
 example:
@@ -105,6 +105,7 @@ rename(
     "students.html", //old file name
     "students.txt" //new file name
 );
+
 
 #Copying a File
 example:
@@ -119,6 +120,7 @@ copy(
 Use file_exists().
 example: 
 
+
 if (file_exists("studentdddd.txt")) {
     echo "File exists.";
 } else {
@@ -128,19 +130,36 @@ if (file_exists("studentdddd.txt")) {
 #Deleting a File
 Use the unlink() function.
 example:
-
-if (file_exists("students.php")) {
-    unlink("students.php");
-    echo "File deleted.";
-}
 */
 
+if (file_exists("renamed.php")) {
+    unlink("renamed.php");
+    echo "File deleted.";
+}
+
 // directory related functions in php 
-// mkdir("sanam");
-// rmdir("sanam");
-// rename(old,new)
-//is_dir(filepath)
-// qn: how to delete all the directory if it is not empty? 
+// mkdir("check");
+// rename("check","renameddirectory");
+// $result=is_dir("student.txt");
+// var_dump($result);
+// rmdir("renameddirectory");
+// rmdir("check");
+
+// qn: how to delete  the directory if it is not empty? 
+$dir = "check";
+$directorycontents = scandir($dir);
+
+foreach ($directorycontents as $file) {
+    if ($file === "." || $file === "..") {
+        continue;
+    }
+    $actualpath = $dir . "/" . $file;
+    unlink($actualpath);
+}
+
+rmdir($dir);
+
+
 
 
 ?>
