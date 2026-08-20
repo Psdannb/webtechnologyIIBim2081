@@ -1,8 +1,6 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // print_r($_FILES);
-    // die();
     // Check whether file was selected
     if (isset($_FILES["myfile"])) {
 
@@ -19,10 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $extension = strtolower(
             pathinfo($fileName, PATHINFO_EXTENSION)
         );
-        // echo $extension;
-        // die();
+       // Allowed extensions
  $allowedTypes = ["jpg", "jpeg", "png", "pdf"];
-        // Allowed extensions
+       
        
 
         // Maximum size: 2 MB
@@ -33,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($fileSize > $maxSize) {
 
             echo "File size must be less than 2 MB.";
+            exit();
 
         }
 
@@ -40,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         elseif (!in_array($extension, $allowedTypes)) {
 
             echo "Only JPG, JPEG, PNG and PDF files are allowed.";
+            exit();
 
         }
 
@@ -50,10 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 mkdir("uploads");
             }
 
-            // Destination
-             $uniquenumber=bin2hex(random_bytes(16)); 
-        $uniquefilename=$uniquenumber.$fileName;
-            $destination = "uploads/" . $uniquefilename;
+            $destination = "uploads/" . $fileName; 
 
             // Move uploaded file
             if (move_uploaded_file(
@@ -69,6 +65,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             }
         }
+    }
+    else{
+        echo "Please select at least one file";
     }
 }
 
