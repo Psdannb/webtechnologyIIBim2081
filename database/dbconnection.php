@@ -1,0 +1,10 @@
+<?php
+$host="localhost";
+$dbusername="root";
+$dbpassword="";
+$dbname="webtechbim";
+$connectionstring=mysqli_connect($host,$dbusername,$dbpassword,$dbname);
+if(!$connectionstring){
+    die();
+}
+?>
