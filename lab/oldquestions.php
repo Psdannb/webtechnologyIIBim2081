@@ -112,7 +112,7 @@ else{
 2025-preboard
 Write a PHP script to connect to MySQL database, create Student(rollno,uname,uaddress,DOB) table and insert two records. [5 marks]
 Solution:
-*/
+
 $hostname="localhost";
 $dbname="fom";
 $dbusername="root";
@@ -134,6 +134,7 @@ $insertdata2="INSERT INTO Student(uname,uaddress,dob) VALUES ('Sita','Biratnagar
 mysqli_query($connectionstring,$insertdata1);
 mysqli_query($connectionstring,$insertdata2);
 }
+*/
 
 /*
 2025-preboard
@@ -153,5 +154,102 @@ f. Gender (radio):required
 The form contains a submit button,which on click, performs the above validations and stores the form data into the database if submitted data is valid and displays the validation error on invalid data. Assume all required assumptions on database. [10 marks]
 
 Solution:
+
+Assumptions:
+Database : cmat
+Table    : CREATE TABLE registration(
+              id INT AUTO_INCREMENT PRIMARY KEY,
+              name VARCHAR(100), email VARCHAR(100),
+              mobile VARCHAR(10), dob VARCHAR(10),
+              program VARCHAR(50), gender VARCHAR(10));
 */
+
+$con = mysqli_connect("localhost", "root", "", "cmat");
+
+$errors = array();
+
+if (isset($_POST['submit'])) {
+
+    $name    = $_POST['name'];
+    $email   = $_POST['email'];
+    $mobile  = $_POST['mobile'];
+    $dob     = $_POST['dob'];
+    $program = $_POST['program'];
+    $gender  = isset($_POST['gender']) ? $_POST['gender'] : "";
+
+    // a. Name
+    if ($name == "")
+        $errors[] = "Name is required.";
+    else if (strlen($name) < 8)
+        $errors[] = "Name must be at least 8 characters long.";
+
+    // b. Email
+    if ($email == "")
+        $errors[] = "Email is required.";
+    else if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+        $errors[] = "Email is not in correct format.";
+
+    // c. Mobile Number
+    if ($mobile == "")
+        $errors[] = "Mobile number is required.";
+    else if (!preg_match("/^[0-9]{10}$/", $mobile))
+        $errors[] = "Mobile number must be exactly 10 digits.";
+
+    // d. Date of Birth
+    if ($dob == "")
+        $errors[] = "Date of birth is required.";
+    else if (!preg_match("/^[0-9]{2}-[0-9]{2}-[0-9]{4}$/", $dob))
+        $errors[] = "Date of birth must be in MM-DD-YYYY format.";
+
+    // e. Program Choice
+    if ($program == "")
+        $errors[] = "Program choice is required.";
+
+    // f. Gender
+    if ($gender == "")
+        $errors[] = "Gender is required.";
+
+    // If no error, insert into database
+    if (count($errors) == 0) {
+        $sql = "INSERT INTO registration(name, email, mobile, dob, program, gender)
+                VALUES('$name', '$email', '$mobile', '$dob', '$program', '$gender')";
+        if (mysqli_query($con, $sql))
+            echo "<h3>Registration successful!</h3>";
+        else
+            echo "<h3>Error: " . mysqli_error($con) . "</h3>";
+    } else {
+        // Display validation errors
+        echo "<b>Please correct the following errors:</b><ul>";
+        foreach ($errors as $e)
+            echo "<li>$e</li>";
+        echo "</ul>";
+    }
+}
 ?>
+
+<h2>CMAT Registration Form</h2>
+
+<form method="post" action="">
+    Name: <input type="text" name="name"><br><br>
+
+    Email: <input type="text" name="email"><br><br>
+
+    Mobile Number: <input type="text" name="mobile"><br><br>
+
+    Date of Birth (MM-DD-YYYY): <input type="text" name="dob"><br><br>
+
+    Program Choice:
+    <select name="program">
+        <option value="">--Select--</option>
+        <option value="BBA">BBA</option>
+        <option value="MBA">MBA</option>
+        <option value="BIM">BIM</option>
+    </select><br><br>
+
+    Gender:
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <input type="radio" name="gender" value="Other"> Other<br><br>
+
+    <input type="submit" name="submit" value="Register">
+</form>
