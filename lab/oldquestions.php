@@ -85,6 +85,25 @@ displaycountrycities($CountryCities);
 
 */
 
+
+/*
+2024-QN-21:
+WAP to define  a function to take integer from 1 to 12 and return the name of corresponding month.
+
+Solution:
+
+function monthcalculator($num){
+    if($num<1 || $num>12){
+        return "Please provide a number between 1 to 12";
+    }
+    else{
+        $month=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+        return $month[$num-1];
+    }
+}
+$result=monthcalculator(111);
+echo $result;
+*/
 /*
 lab3: database connection and CRUD operations
 2024-Qn-19
@@ -164,7 +183,7 @@ Table    : CREATE TABLE registration(
               program VARCHAR(50), gender VARCHAR(10));
 */
 
-$con = mysqli_connect("localhost", "root", "", "cmat");
+$connectionstring = mysqli_connect("localhost", "root", "", "cmat");
 
 $errors = array();
 
@@ -213,10 +232,10 @@ if (isset($_POST['submit'])) {
     if (count($errors) == 0) {
         $sql = "INSERT INTO registration(name, email, mobile, dob, program, gender)
                 VALUES('$name', '$email', '$mobile', '$dob', '$program', '$gender')";
-        if (mysqli_query($con, $sql))
+        if (mysqli_query($connectionstring, $sql))
             echo "<h3>Registration successful!</h3>";
         else
-            echo "<h3>Error: " . mysqli_error($con) . "</h3>";
+            echo "<h3>Error: " . mysqli_error($connectionstring) . "</h3>";
     } else {
         // Display validation errors
         echo "<b>Please correct the following errors:</b><ul>";
